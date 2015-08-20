@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+var marker;
+var myLatLng = {lat: 59.325, lng: 18.070}
+var image  = {
+ url: 'img/customPin.png',
+ // This marker is 20 pixels wide by 32 pixels high.
+ size: new google.maps.Size(20, 32),
+ // The origin for this image is (0, 0).
+ origin: new google.maps.Point(0, 0),
+ // The anchor for this image is the base of the flagpole at (0, 32).
+ anchor: new google.maps.Point(0, 32)
+};
+
+ function initMap() {
+     map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 2,
+     center: myLatLng
+   });
+
+   map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
+
+
+   // Set the stroke width, and fill color for each polygon
+     map.data.setStyle({
+       fillColor: 'green',
+       strokeWeight: 1
+     });
+
+
+   marker = new google.maps.Marker({
+     map: map,
+     draggable: true,
+     icon:image,
+     animation: google.maps.Animation.DROP,
+     position: myLatLng
+   });
+   marker.addListener('click', toggleBounce);
+ }
+
+ function toggleBounce() {
+   if (marker.getAnimation() !== null) {
+     marker.setAnimation(null);
+   } else {
+     marker.setAnimation(google.maps.Animation.BOUNCE);
+   }
+ }
+
+
+
+function detectBrowser() {
+  var useragent = navigator.userAgent;
+  var mapdiv = document.getElementById("map");
+
+  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+    mapdiv.style.width = '100%';
+    mapdiv.style.height = '100%';
+  } else {
+    mapdiv.style.width = '600px';
+    mapdiv.style.height = '800px';
+  }
+}
+
+
+
+
+
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBezSsRDrH2fapffbe0e6aYj6M8umIDL-c&callback=initMap">
+    </script>
+  </body>
+</html>
