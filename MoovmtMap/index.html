@@ -16,8 +16,41 @@ var myLatLng = {lat: 59.325, lng: 18.070}
 
 // Multiple Markers
     var markers = [
-        ['London Eye, London', 51.503454,-0.119562],
-        ['Palace of Westminster, London', 51.499633,-0.124755]
+
+      ['Half Moon Bay State Beach',37.473888888889,-122.44861111111],
+      ['Suomenlinna',60.143611111111,24.984444444444],
+      ['Koh Lanta National Park',7.49496109807,99.0753975014],
+      ['Koh Lanta National Park',7.61068551,99.03260511],
+      ['View Point, Phi Phi',7.7415261827337,98.776057270889],
+      ['Railay Beach',8.0110887787238,98.839505118288],
+      ['Pai Canyon',19.304783574033,98.452880886528],
+      ['Santa Claus Village',66.550555555556,25.889444444444],
+      ['Caffellini',59.3235397,18.0714493],
+      ['Helsinki, Finland',60.1756,24.9342],
+      ['Epagny',46.589487364773,7.0841656618101],
+      ['Ponte Brolla, Ticino, Switzerland',46.186758133545,8.7534313913048],
+      ['Le Deck',46.4813614,6.7747102],
+      ['Hes-so Valais Wallis',46.292737349148,7.5365484811814],
+      ['Ayia Napa, Cyprus',51.1586601444,-0.155767042939],
+      ['Leukerbad, Switzerland',46.3833,7.63333],
+      ['HES-SO Valais Sierre',46.2930908,7.53684],
+      ['Yverdon Les Bains',47.12648806,9.05774108],
+      ['Starbucks',46.4622917,6.8432999],
+      ['Millésime Club',46.437813112172,6.9075283960155],
+      ['Gasthaus zum Salmen',47.6474609,8.6038399],
+      ['Stand De Tir De Chábles-Croix',46.316793559598,6.9432526620702],
+      ['Bundeshaus | Palais Fédéral',46.9467735,7.4443932],
+      ['Street Parade 2011 Schweiz, Zürich',47.366123038601,8.5458460866939],
+      ['Kaserne Kloten',47.4580383,8.5794296],
+      ['LAtelier Volant',46.5210304,6.62783],
+      ['Aérodrome de Colombier',46.95966803362,6.8660429698978],
+      ['Grand Hôtel Suisse-Majestic',46.435791,6.9098902],
+      ['Karting Vuiteboeuf',46.8077087,6.5608101],
+      ['Boscolo New York Palace Luxury Hotel',47.4984818,19.0704594],
+      ['Café Luna',46.52034,6.6298599],
+      ['Harrys Bar',46.438596343034,6.9064754220701],
+      ['Swiss Snowboard School',46.0992088,7.2298298]
+
     ];
 
 var image  = {
@@ -50,7 +83,7 @@ for( i = 0; i < markers.length; i++ ) {
      map: map,
      draggable: false,
      icon:image,
-     animation: google.maps.Animation.DROP,
+     //animation: google.maps.Animation.DROP,
      position: new google.maps.LatLng(markers[i][1], markers[i][2])
    });
    marker.addListener('click', toggleBounce);

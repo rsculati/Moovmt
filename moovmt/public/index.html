@@ -92,8 +92,8 @@
       var obj = response;
       for (var i=0, l=response.data.length; i<l; i++) {
         var place = response.data[i].place;
-        console.log(place);
-        //document.getElementById('location').innerHTML += '<br/>' + place.name;
+        //console.log(place);
+        document.getElementById('location').innerHTML += '<br/>' + '['+ place.name + ',' + place.location.latitude + ',' + place.location.longitude + ']';
       }
       //  console.log(response);
       return obj;
@@ -116,6 +116,7 @@
 data-auto-logout-lintagged_place="false" onlogin="checkLoginState();"></div>
 
 <div id="status">
+  <div id="location">
 </div>
 
 
