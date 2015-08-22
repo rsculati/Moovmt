@@ -1,93 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script type="text/javascript">
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Welcome on Moovmt</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-social.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+<!--login modal-->
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div id="innerLogin" class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center">Display your journey</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu nulla mollis, varius velit id, porta enim. Pellentesque consequat aliquam nunc et cursus. Mauris quis quam in felis pellentesque hendrerit. Donec ac ultricies diam. Nam et dignissim felis, quis malesuada purus. Vestibulum sit amet laoreet urna. Praesent elementum ultrices enim. Integer rutrum libero id vehicula condimentum. Fusce sollicitudin tellus a augue sagittis, rhoncus eleifend justo laoreet. Praesent quis diam arcu. Praesent placerat eros in felis feugiat eleifend. Duis finibus augue augue, venenatis faucibus ante varius a. </p>
+            </div>
 
-var map;
-var marker;
-var myLatLng = {lat: 59.325, lng: 18.070}
-
-// Multiple Markers
-    var markers = [
-        ['London Eye, London', 51.503454,-0.119562],
-        ['Palace of Westminster, London', 51.499633,-0.124755]
-    ];
-
-var image  = {
- url: 'img/customPin.png',
- // This marker is 20 pixels wide by 32 pixels high.
- size: new google.maps.Size(20, 32),
- // The origin for this image is (0, 0).
- origin: new google.maps.Point(0, 0),
- // The anchor for this image is the base of the flagpole at (0, 32).
- anchor: new google.maps.Point(0, 32)
-};
-
- function initMap() {
-     map = new google.maps.Map(document.getElementById('map'), {
-     zoom: 2,
-     center: new google.maps.LatLng(markers[1][1], markers[1][2])
-   });
-
-   map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
-
-
-   // Set the stroke width, and fill color for each polygon
-     map.data.setStyle({
-       fillColor: 'green',
-       strokeWeight: 1
-     });
-
-for( i = 0; i < markers.length; i++ ) {
-   marker = new google.maps.Marker({
-     map: map,
-     draggable: false,
-     icon:image,
-     animation: google.maps.Animation.DROP,
-     position: new google.maps.LatLng(markers[i][1], markers[i][2])
-   });
-   marker.addListener('click', toggleBounce);
- }
-}
-
- function toggleBounce() {
-   if (marker.getAnimation() !== null) {
-     marker.setAnimation(null);
-   } else {
-     marker.setAnimation(google.maps.Animation.BOUNCE);
-   }
- }
-
-
-
-function detectBrowser() {
-  var useragent = navigator.userAgent;
-  var mapdiv = document.getElementById("map");
-
-  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
-    mapdiv.style.width = '100%';
-    mapdiv.style.height = '100%';
-  } else {
-    mapdiv.style.width = '600px';
-    mapdiv.style.height = '800px';
-  }
-}
-
-
-
-
-
-
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBezSsRDrH2fapffbe0e6aYj6M8umIDL-c&callback=initMap">
-    </script>
-  </body>
+            <div class="form-group">
+              <a class="btn btn-block btn-social btn-facebook">
+								<i class="fa fa-facebook"></i>Sign in with Facebook
+							</a>
+              <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		  </div>
+      </div>
+  </div>
+  </div>
+</div>
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>
