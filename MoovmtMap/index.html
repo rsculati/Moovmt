@@ -13,6 +13,13 @@
 var map;
 var marker;
 var myLatLng = {lat: 59.325, lng: 18.070}
+
+// Multiple Markers
+    var markers = [
+        ['London Eye, London', 51.503454,-0.119562],
+        ['Palace of Westminster, London', 51.499633,-0.124755]
+    ];
+
 var image  = {
  url: 'img/customPin.png',
  // This marker is 20 pixels wide by 32 pixels high.
@@ -26,7 +33,7 @@ var image  = {
  function initMap() {
      map = new google.maps.Map(document.getElementById('map'), {
      zoom: 2,
-     center: myLatLng
+     center: new google.maps.LatLng(markers[1][1], markers[1][2])
    });
 
    map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
@@ -38,16 +45,17 @@ var image  = {
        strokeWeight: 1
      });
 
-
+for( i = 0; i < markers.length; i++ ) {
    marker = new google.maps.Marker({
      map: map,
-     draggable: true,
+     draggable: false,
      icon:image,
      animation: google.maps.Animation.DROP,
-     position: myLatLng
+     position: new google.maps.LatLng(markers[i][1], markers[i][2])
    });
    marker.addListener('click', toggleBounce);
  }
+}
 
  function toggleBounce() {
    if (marker.getAnimation() !== null) {
